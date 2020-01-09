@@ -1,0 +1,11 @@
+{
+  "port": 8080,
+  "appname": "MonsterAPI",
+  "dbName": "monster_api",
+  "appsecret": "overridden by env",
+  "dbHost": "localhost",
+  "dbPort": "32768",
+  "dbUser": "postgres",
+  "dbPass": "psql",
+  "dbType": "postgres"
+}
