@@ -13,20 +13,16 @@ func NewCityService(city cityrepo.Repository) Service {
 	return &CityService{city}
 }
 
-func (repo *CityService) Create(toInsert *models.City) error {
-
-	return nil
+func (service *CityService) Create(toInsert *models.City) error {
+	return service.cityRepo.Create(toInsert)
 }
 
-func (repo *CityService) Update(toUpdate *models.City) error {
-
-	return nil
+func (service *CityService) Update(toUpdate *models.City) error {
+	return service.cityRepo.Update(toUpdate)
 }
 
-func (repo *CityService) DeleteByID(id int64) error {
-	return nil
-}
-
-func (repo *CityService) GetByID(id int64) (*models.City, error) {
-	return nil, nil
+func (service *CityService) DeleteByID(id uint) error {
+	toDelete := new(models.City)
+	toDelete.ID = id
+	return service.cityRepo.DeleteByID(toDelete)
 }
