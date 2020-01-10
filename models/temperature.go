@@ -1,8 +1,6 @@
 package models
 
 import (
-	"time"
-
 	"github.com/jinzhu/gorm"
 )
 
@@ -12,5 +10,5 @@ type Temperature struct {
 	CityID    uint
 	Max       int64
 	Min       int64
-	Timestamp time.Time
+	Timestamp int64
 }
