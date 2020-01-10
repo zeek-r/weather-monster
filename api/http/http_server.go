@@ -39,7 +39,8 @@ func (api *API) Serve() error {
 	// Load Handlers
 	Handlers := handler.Init(api.app)
 
-	routes := router.LoadRoutes("/api", Handlers)
+	routes := router.LoadRoutes("/", Handlers)
+	logger.Info("Loaded api Routes")
 
 	server := &http.Server{
 		Addr:        fmt.Sprintf(":%d", config.Port),
