@@ -1,7 +1,6 @@
 package routes
 
 import (
-	"fmt"
 	"github.com/gorilla/mux"
 	handler "github.com/zeek-r/weather-monster/api/http/handlers"
 	middleware "github.com/zeek-r/weather-monster/api/http/middlewares"
@@ -15,12 +14,10 @@ func LoadRoutes(pathPrefix string, handlers *handler.Handler) *mux.Router {
 	router.Use(middleware.RequestPreProcessor)
 
 	/** Start Route Loading */
-	fmt.Println("Loading hanlers")
 	LoadCityRoutes(router, handlers.CityHandler)
 	LoadTemperatureRoutes(router, handlers.TemperatureHandler)
 	LoadForecastRoutes(router, handlers.ForecastHandler)
 	LoadWebhookRoutes(router, handlers.WebhookHandler)
-	fmt.Println("Loaded hanlers")
 	/** Route Loading End */
 	return router
 }
