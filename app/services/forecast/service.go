@@ -13,6 +13,6 @@ func NewForecastService(temperature temperatureRepo.Repository) Service {
 	return &ForecastService{temperature}
 }
 
-func (repo *ForecastService) GetByID(id int64) (*models.Temperature, error) {
-	return nil, nil
+func (service *ForecastService) GetByID(id uint) (models.Forecast, error) {
+	return service.temperatureRepo.GetForecastByID(id)
 }

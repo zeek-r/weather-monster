@@ -5,5 +5,5 @@ import (
 )
 
 type Service interface {
-	GetByID(id int64) (*models.Temperature, error)
+	GetByID(id uint) (models.Forecast, error)
 }
