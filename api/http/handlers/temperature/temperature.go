@@ -34,7 +34,7 @@ func (handler *TemperatureHandler) Create(w http.ResponseWriter, r *http.Request
 	}
 
 	if err := json.Unmarshal(body, &request); err != nil {
-		message := "Error unmarshalling city"
+		message := "Error unmarshalling temperature"
 		logger.Error(err, message)
 		response.Err(w, message, 500)
 		return
