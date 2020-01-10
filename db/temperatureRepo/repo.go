@@ -22,9 +22,9 @@ func (repo *temperatureRepository) Create(toInsert *models.Temperature) error {
 	return nil
 }
 
-func (repo *temperatureRepository) GetForecastByID(id uint) (models.Forecast, error) {
+func (repo *temperatureRepository) GetForecastByID(id uint) (*models.Forecast, error) {
 	var forecast models.Forecast
 	query := "SELECT avg(max) AS max, avg(min) AS min, COUNT(*) AS sample FROM temperatures where city_id = ?"
 	repo.Conn.Raw(query, id).Scan(&forecast)
-	return forecast, nil
+	return &forecast, nil
 }

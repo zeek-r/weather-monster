@@ -6,5 +6,5 @@ import (
 
 type Repository interface {
 	Create(toInsert *models.Temperature) error
-	GetForecastByID(id uint) (models.Forecast, error)
+	GetForecastByID(id uint) (*models.Forecast, error)
 }
