@@ -7,5 +7,5 @@ import (
 
 func LoadWebhookRoutes(router *mux.Router, webhookHandler *webhookhandler.WebhookHandler) {
 	router.HandleFunc("/webhooks", webhookHandler.Create).Methods("POST")
-	router.HandleFunc("/webhooks/{id}", webhookHandler.DeleteByID).Methods("DELETE")
+	router.HandleFunc("/webhooks/{city_id}", webhookHandler.DeleteByID).Methods("DELETE")
 }
