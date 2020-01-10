@@ -16,13 +16,13 @@ import (
 )
 
 type Service struct {
-	CityService        *cityservice.Service
-	ForecastService    *forecastservice.Service
-	TemperatureService *temperatureservice.Service
-	WebhookService     *webhookservice.Service
+	CityService        cityservice.Service
+	ForecastService    forecastservice.Service
+	TemperatureService temperatureservice.Service
+	WebhookService     webhookservice.Service
 }
 
-func Init(dbConn *gorm.DB) *Service {
+func Init(dbConn *gorm.DB) Service {
 
 	/** Repo and services initialization start **/
 
@@ -39,10 +39,10 @@ func Init(dbConn *gorm.DB) *Service {
 
 	/** Repo and services initialization end **/
 
-	return &Service{
-		CityService:        &cityService,
-		ForecastService:    &forecastService,
-		TemperatureService: &temperatureService,
-		WebhookService:     &webhookService,
+	return Service{
+		CityService:        cityService,
+		ForecastService:    forecastService,
+		TemperatureService: temperatureService,
+		WebhookService:     webhookService,
 	}
 }
