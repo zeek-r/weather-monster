@@ -23,10 +23,17 @@ func (repo *webhookRepository) Create(toInsert *models.Webhook) error {
 }
 
 func (repo *webhookRepository) DeleteByID(toDelete *models.Webhook) error {
-	deleted := repo.Conn.Model(&models.City{}).Delete(toDelete)
+	deleted := repo.Conn.Model(&models.Webhook{}).Delete(toDelete)
 
 	if deleted.Error != nil {
 		return deleted.Error
 	}
 	return nil
+}
+
+func (repo *webhookRepository) GetWebhooksByID(id uint) ([]models.Webhook, error) {
+	var webhooks []models.Webhook
+	query := "SELECT * FROM webhooks where city_id = ?"
+	repo.Conn.Raw(query, id).Scan(&webhooks)
+	return webhooks, nil
 }

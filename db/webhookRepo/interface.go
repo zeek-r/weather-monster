@@ -7,4 +7,5 @@ import (
 type Repository interface {
 	Create(toInsert *models.Webhook) error
 	DeleteByID(toDelete *models.Webhook) error
+	GetWebhooksByID(id uint) ([]models.Webhook, error)
 }
