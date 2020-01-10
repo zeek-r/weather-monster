@@ -7,5 +7,6 @@
   "dbPort": "32768",
   "dbUser": "postgres",
   "dbPass": "psql",
-  "dbType": "postgres"
+  "dbType": "postgres",
+  "debug": true
 }
