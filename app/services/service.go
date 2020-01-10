@@ -29,13 +29,13 @@ func Init(dbConn *gorm.DB) Service {
 	cityRepo := cityrepo.Init(dbConn)
 	cityService := cityservice.NewCityService(cityRepo)
 
-	temperatureRepo := temperaturerepo.Init(dbConn)
-	temperatureService := temperatureservice.NewTemperatureService(temperatureRepo)
-
-	forecastService := forecastservice.NewForecastService(temperatureRepo)
-
 	webhookRepo := webhookrepo.Init(dbConn)
 	webhookService := webhookservice.NewWebhookService(webhookRepo)
+
+	temperatureRepo := temperaturerepo.Init(dbConn)
+	temperatureService := temperatureservice.NewTemperatureService(temperatureRepo, webhookRepo)
+
+	forecastService := forecastservice.NewForecastService(temperatureRepo)
 
 	/** Repo and services initialization end **/
 
