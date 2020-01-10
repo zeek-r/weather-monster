@@ -11,6 +11,7 @@ type Config struct {
 	dbUser string
 	dbPass string
 	dbType string
+	debug  bool
 }
 
 func LoadConfig() *Config {
@@ -21,6 +22,7 @@ func LoadConfig() *Config {
 		dbUser: viper.GetString("dbUser"),
 		dbPass: viper.GetString("dbPass"),
 		dbType: viper.GetString("dbType"),
+		debug:  viper.GetBool("debug"),
 	}
 	return config
 }
