@@ -15,19 +15,9 @@ func Init(Conn *gorm.DB) Repository {
 }
 
 func (repo *temperatureRepository) Create(toInsert *models.Temperature) error {
-
+	created := repo.Conn.Create(toInsert)
+	if created.Error != nil {
+		return created.Error
+	}
 	return nil
-}
-
-func (repo *temperatureRepository) Update(toUpdate *models.Temperature) error {
-
-	return nil
-}
-
-func (repo *temperatureRepository) DeleteByID(id int64) error {
-	return nil
-}
-
-func (repo *temperatureRepository) GetByID(id int64) (*models.Temperature, error) {
-	return nil, nil
 }
