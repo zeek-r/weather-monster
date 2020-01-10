@@ -7,7 +7,7 @@ import (
 )
 
 type App struct {
-	Services *service.Service
+	Services service.Service
 	db       *gorm.DB
 }
 
