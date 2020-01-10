@@ -20,7 +20,7 @@ func NewForecastHandler(service forecast.Service) *ForecastHandler {
 }
 
 func (handler *ForecastHandler) GetByID(w http.ResponseWriter, r *http.Request) {
-	var forecast models.Forecast
+	var forecast *models.Forecast
 	var err error
 	params := mux.Vars(r)
 
