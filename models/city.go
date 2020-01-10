@@ -9,5 +9,4 @@ type City struct {
 	Name      string `gorm:"unique_index"`
 	Latitude  string `gorm:"not null"`
 	Longitude string `gorm:"not null"`
-	Deleted   bool
 }
