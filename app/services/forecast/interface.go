@@ -5,5 +5,5 @@ import (
 )
 
 type Service interface {
-	GetByID(id uint) (models.Forecast, error)
+	GetByID(id uint) (*models.Forecast, error)
 }
