@@ -15,19 +15,18 @@ func Init(Conn *gorm.DB) Repository {
 }
 
 func (repo *webhookRepository) Create(toInsert *models.Webhook) error {
-
+	created := repo.Conn.Create(toInsert)
+	if created.Error != nil {
+		return created.Error
+	}
 	return nil
 }
 
-func (repo *webhookRepository) Update(toUpdate *models.Webhook) error {
+func (repo *webhookRepository) DeleteByID(toDelete *models.Webhook) error {
+	deleted := repo.Conn.Model(&models.City{}).Delete(toDelete)
 
+	if deleted.Error != nil {
+		return deleted.Error
+	}
 	return nil
-}
-
-func (repo *webhookRepository) DeleteByID(id int64) error {
-	return nil
-}
-
-func (repo *webhookRepository) GetByID(id int64) (*models.Webhook, error) {
-	return nil, nil
 }

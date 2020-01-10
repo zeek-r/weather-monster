@@ -13,20 +13,12 @@ func NewWebhookService(webhook webhookrepo.Repository) Service {
 	return &WebhookService{webhook}
 }
 
-func (repo *WebhookService) Create(toInsert *models.Webhook) error {
-
-	return nil
+func (service *WebhookService) Create(toInsert *models.Webhook) error {
+	return service.webhookRepo.Create(toInsert)
 }
 
-func (repo *WebhookService) Update(toUpdate *models.Webhook) error {
-
-	return nil
-}
-
-func (repo *WebhookService) DeleteByID(id int64) error {
-	return nil
-}
-
-func (repo *WebhookService) GetByID(id int64) (*models.Webhook, error) {
-	return nil, nil
+func (service *WebhookService) DeleteByID(id uint) error {
+	toDelete := new(models.Webhook)
+	toDelete.ID = id
+	return service.webhookRepo.DeleteByID(toDelete)
 }
