@@ -43,7 +43,8 @@ The project structure tries to follow clean architecture
 ---
 
 ### Run Project
-
+- Dev mode
+    > ./dev.sh
 - Build
   > go build -o weather-monster .
 - Run
