@@ -8,9 +8,6 @@
 Golang 1.12 and above
 Postgresql
 
-Docker, optional
-Docker compose, optional
-Make from build-essential, optional
 ```
 
 ## Libraries used:
